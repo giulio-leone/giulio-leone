@@ -29,7 +29,7 @@ The most widely adopted TypeScript toolkit for building AI applications. Key con
 | **Integrations** | [#12946](https://github.com/vercel/ai/pull/12946) | LangChain HITL tool call ID mismatch breaking human-in-the-loop |
 | **Gateway** | [#12935](https://github.com/vercel/ai/pull/12935), [#12936](https://github.com/vercel/ai/pull/12936) | Image generation cost aggregation + file chunk metadata preservation |
 
-### [Model Context Protocol SDK](https://github.com/modelcontextprotocol/typescript-sdk) — `5 PRs`
+### [Model Context Protocol SDK](https://github.com/modelcontextprotocol/typescript-sdk) — `6 PRs`
 
 The official TypeScript SDK for MCP, the open standard for AI tool integration.
 
@@ -38,6 +38,7 @@ The official TypeScript SDK for MCP, the open standard for AI tool integration.
 - [#1600](https://github.com/modelcontextprotocol/typescript-sdk/pull/1600) — `ResourceSchema` missing `size` field defined in the MCP specification
 - [#1601](https://github.com/modelcontextprotocol/typescript-sdk/pull/1601) — OAuth scope overwrite prevented progressive authorization
 - [#1602](https://github.com/modelcontextprotocol/typescript-sdk/pull/1602) — Server re-registered capabilities on every connection
+- [#1603](https://github.com/modelcontextprotocol/typescript-sdk/pull/1603) — `z.object()` schemas silently stripped all tool arguments
 
 ### [AG-UI Protocol](https://github.com/ag-ui-protocol/ag-ui) — `4 PRs`
 
@@ -52,9 +53,10 @@ The emerging open protocol for Agent-to-UI communication.
 
 - [#10188](https://github.com/langchain-ai/langchainjs/pull/10188) — `ChatGoogleGenerativeAI` crashed with undefined message when Google blocked content (9 👍)
 
-### [CopilotKit](https://github.com/CopilotKit/CopilotKit) — `1 PR`
+### [CopilotKit](https://github.com/CopilotKit/CopilotKit) — `2 PRs`
 
 - [#3314](https://github.com/CopilotKit/CopilotKit/pull/3314) — Global KaTeX CSS import broke Next.js builds with `optimizeCss` (7 👍, `help wanted`)
+- [#3315](https://github.com/CopilotKit/CopilotKit/pull/3315) — Non-object tool arguments from LLMs caused permanent Anthropic 400 errors
 
 ---
 
