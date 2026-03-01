@@ -2,7 +2,7 @@
 
 **AI Engineer & Software Architect** — Building intelligent systems at the intersection of LLMs, agent frameworks, and production infrastructure.
 
-`220+ open PRs` · `570+ merged PRs` · `55+ repos` · Python & TypeScript
+`200+ open PRs` · `590+ merged PRs` · `55+ repos` · Python & TypeScript
 
 ---
 
@@ -10,53 +10,59 @@
 
 Core contributor across the Python AI ecosystem — from LLM proxies and agent frameworks to protocol SDKs and ML infrastructure.
 
-### [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) — `7 PRs`
+### [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) — `8 PRs`
 
 Anthropic's official Python SDK for the Model Context Protocol.
 
+- [#2185](https://github.com/modelcontextprotocol/python-sdk/pull/2185) — `client_secret_post` silently sent empty `client_id` in OAuth token requests
+- [#2184](https://github.com/modelcontextprotocol/python-sdk/pull/2184) — `BrokenResourceError` crash in stdio transport initialization
+- [#2183](https://github.com/modelcontextprotocol/python-sdk/pull/2183) — Streamable HTTP transport leaked connections on server disconnect
+- [#2182](https://github.com/modelcontextprotocol/python-sdk/pull/2182) — OAuth metadata discovery fallback masked original error
+- [#2181](https://github.com/modelcontextprotocol/python-sdk/pull/2181) — SSE transport retry loop didn't respect `max_retries` config
 - [#2179](https://github.com/modelcontextprotocol/python-sdk/pull/2179) — Exception group collapsing surfaced wrong errors from task groups
-- [#2178](https://github.com/modelcontextprotocol/python-sdk/pull/2178) — `Context` parameter detection failed on callable class instances
-- [#2177](https://github.com/modelcontextprotocol/python-sdk/pull/2177) — `ClosedResourceError` crash when logging to disconnected clients
-- [#2174](https://github.com/modelcontextprotocol/python-sdk/pull/2174) — Error recovery path missed `ClosedResourceError` in `_handle_message`
 - [#2172](https://github.com/modelcontextprotocol/python-sdk/pull/2172) — `stdio_server` closed real stdin/stdout by sharing file descriptors
-- [#2169](https://github.com/modelcontextprotocol/python-sdk/pull/2169) — OAuth scope accumulation across 401/403 for progressive authorization
-- [#2168](https://github.com/modelcontextprotocol/python-sdk/pull/2168) — JSON-RPC `id: null` misclassified as notification instead of error
+- [#2165](https://github.com/modelcontextprotocol/python-sdk/pull/2165) — JSON-RPC `id: null` misclassified as notification instead of error
 
-### [LiteLLM](https://github.com/BerriAI/litellm) — `12 PRs`
+### [LiteLLM](https://github.com/BerriAI/litellm) — `26 PRs` · `4 merged ✅`
 
 Universal LLM proxy (22k+ ⭐). Fixes across providers, proxy, and UI.
 
 | Area | PRs | Impact |
 |------|-----|--------|
 | **Anthropic** | [#22388](https://github.com/BerriAI/litellm/pull/22388), [#22387](https://github.com/BerriAI/litellm/pull/22387), [#22371](https://github.com/BerriAI/litellm/pull/22371) | `effort=max` restricted to Opus 4.6; `output_config.effort` mapping; spurious beta header removed |
+| **Bedrock** | [#22479](https://github.com/BerriAI/litellm/pull/22479), [#22449](https://github.com/BerriAI/litellm/pull/22449), [#22448](https://github.com/BerriAI/litellm/pull/22448) | Kimi K2.5 max_output_tokens correction; Bedrock streaming; guardrail config |
 | **MiniMax** | [#22394](https://github.com/BerriAI/litellm/pull/22394) | Reasoning details streaming — mapped `reasoning_details` list format to `reasoning_content` |
-| **Vertex AI** | [#22393](https://github.com/BerriAI/litellm/pull/22393) | Empty schemas for `JsonValue`/`Any` types preserved instead of stripped |
+| **Vertex AI** | [#22393](https://github.com/BerriAI/litellm/pull/22393), [#22477](https://github.com/BerriAI/litellm/pull/22477) | Empty schemas preserved; Gemini model config |
 | **Moonshot** | [#22374](https://github.com/BerriAI/litellm/pull/22374) | `reasoning_content` validation in multi-turn tool calling |
-| **Proxy** | [#22396](https://github.com/BerriAI/litellm/pull/22396), [#22378](https://github.com/BerriAI/litellm/pull/22378) | `master_key` race condition during lifespan startup; `SERVER_ROOT_PATH` passthrough routing |
-| **Cost** | [#22380](https://github.com/BerriAI/litellm/pull/22380), [#22357](https://github.com/BerriAI/litellm/pull/22357) | `base_model` provider mismatch; image cost `router_model_id` extraction |
-| **UI** | [#22381](https://github.com/BerriAI/litellm/pull/22381), [#22379](https://github.com/BerriAI/litellm/pull/22379) | YAML blocked-words upload parsing; newline rendering in tool descriptions |
-| **Core** | [#22364](https://github.com/BerriAI/litellm/pull/22364) | Deferred HTTP fetch from import time to first access |
+| **Proxy** | [#22396](https://github.com/BerriAI/litellm/pull/22396), [#22378](https://github.com/BerriAI/litellm/pull/22378), [#22473](https://github.com/BerriAI/litellm/pull/22473) | `master_key` race condition; `SERVER_ROOT_PATH` routing; config validation |
+| **Cost** | [#22380](https://github.com/BerriAI/litellm/pull/22380), [#22357](https://github.com/BerriAI/litellm/pull/22357), [#22457](https://github.com/BerriAI/litellm/pull/22457) | `base_model` mismatch; image cost extraction; token counting |
+| **UI** | [#22381](https://github.com/BerriAI/litellm/pull/22381), [#22379](https://github.com/BerriAI/litellm/pull/22379) | YAML blocked-words parsing; newline rendering |
+| **Core** | [#22364](https://github.com/BerriAI/litellm/pull/22364), [#22451](https://github.com/BerriAI/litellm/pull/22451) | Deferred HTTP fetch; drop_params provider mapping |
 
-### [Pydantic AI](https://github.com/pydantic/pydantic-ai) — `11 PRs`
+### [Pydantic AI](https://github.com/pydantic/pydantic-ai) — `19 PRs`
 
 Type-safe Python AI agent framework by the Pydantic team.
 
-- [#4471](https://github.com/pydantic/pydantic-ai/pull/4471) — `SpanQuery.has_attributes` didn't match dict values
-- [#4468](https://github.com/pydantic/pydantic-ai/pull/4468) — Missing `run_id` on `ModelRequest` when resuming without prompt
-- [#4467](https://github.com/pydantic/pydantic-ai/pull/4467) — `ToolCallPartDelta.part_delta_kind` misaligned with `ToolCallPart.part_kind`
-- [#4466](https://github.com/pydantic/pydantic-ai/pull/4466) — Global retry count ignored for output validators on tool output path
-- [#4465](https://github.com/pydantic/pydantic-ai/pull/4465) — xAI `cache_read_tokens` not promoted to `RequestUsage`
-- [#4464](https://github.com/pydantic/pydantic-ai/pull/4464) — `HasMatchingSpan` YAML roundtrip failed when field is a `BaseModel`
-- [#4463](https://github.com/pydantic/pydantic-ai/pull/4463) — `SpanQuery` couldn't match dict values stored as JSON strings
+- [#4485](https://github.com/pydantic/pydantic-ai/pull/4485) — `ToolCallPartDelta.part_delta_kind` backward-incompatible rename in streaming
+- [#4484](https://github.com/pydantic/pydantic-ai/pull/4484) — Anthropic retry path crashed on malformed JSON tool args
+- [#4483](https://github.com/pydantic/pydantic-ai/pull/4483) — Missing `run_id` on `ModelRequest` during resume-without-prompt path
+- [#4482](https://github.com/pydantic/pydantic-ai/pull/4482) — Temporal logfire plugin `TypeError` on `client_interceptors` param
+- [#4479](https://github.com/pydantic/pydantic-ai/pull/4479) — Empty `items: {}` not detected as strict-incompatible in JSON Schema
+- [#4476](https://github.com/pydantic/pydantic-ai/pull/4476) — `run_stream_sync` OTel spans never finalized after stream consumption
+- [#4474](https://github.com/pydantic/pydantic-ai/pull/4474) — Empty array `items: {}` sent invalid schema to OpenAI strict mode
+- [#4473](https://github.com/pydantic/pydantic-ai/pull/4473) — Missing strict-incompatible JSON Schema keys in `OpenAIJsonSchemaTransformer`
+- [#4471](https://github.com/pydantic/pydantic-ai/pull/4471) — `SpanQuery.has_attributes` didn't match dict values stored as JSON strings
 - [#4462](https://github.com/pydantic/pydantic-ai/pull/4462) — Google streaming errors not wrapped as `ModelHTTPError`/`ModelAPIError`
-- [#4461](https://github.com/pydantic/pydantic-ai/pull/4461) — Empty `items: {}` not detected as strict-incompatible in JSON Schema
-- [#4460](https://github.com/pydantic/pydantic-ai/pull/4460) — Missing strict-incompatible JSON Schema keys in `OpenAIJsonSchemaTransformer`
-- [#4459](https://github.com/pydantic/pydantic-ai/pull/4459) — Malformed JSON tool args crashed Anthropic retry path
 
-### [smolagents](https://github.com/huggingface/smolagents) — `7 PRs`
+### [smolagents](https://github.com/huggingface/smolagents) — `13 PRs`
 
 HuggingFace's lightweight agent framework.
 
+- [#2022](https://github.com/huggingface/smolagents/pull/2022) — Tool parameter validation crash with optional args in CodeAgent
+- [#2021](https://github.com/huggingface/smolagents/pull/2021) — Message merge crash when mixing string and list content types
+- [#2019](https://github.com/huggingface/smolagents/pull/2019) — `from_dict()` dropped child agent `authorized_imports` config
+- [#2018](https://github.com/huggingface/smolagents/pull/2018) — SyntaxError caused print statement leak from previous step
+- [#2016](https://github.com/huggingface/smolagents/pull/2016) — Tool metadata lost during agent serialization roundtrip
 - [#2014](https://github.com/huggingface/smolagents/pull/2014) — String content crash when merging consecutive same-role messages
 - [#2013](https://github.com/huggingface/smolagents/pull/2013) — Stale print outputs leaked from previous step on syntax error
 - [#2012](https://github.com/huggingface/smolagents/pull/2012) — `None` content crashed `parse_code_blobs` and `extract_code_from_text`
@@ -89,41 +95,26 @@ Google's Agent Development Kit for Python.
 |------|-----|------------|
 | [**Agno**](https://github.com/agno-agi/agno) | 8 | Tool name collision, MCP param injection, ChromaDB empty docs, streaming parse |
 | [**LlamaIndex**](https://github.com/run-llama/llama_index) | 6 | OpenAI-like chat model default, parallel_tool_calls null, completions fallback |
-| [**DSPy**](https://github.com/stanfordnlp/dspy) | 4 | Async generator exception propagation, code parser corruption, history deque |
+| [**DSPy**](https://github.com/stanfordnlp/dspy) | 11 | Async generator exception propagation, code parser corruption, history deque→O(1), streamify error handling |
+| [**Strands Agents**](https://github.com/strands-agents/sdk-python) | 5 | MCP client timeout join safety, Pydantic serialization, stop event handling |
+| [**CrewAI**](https://github.com/crewAIInc/crewAI) | 3 | `None` tools list crash with MCP, pre-guardrail export, signal handler isolation |
+| [**Instructor**](https://github.com/567-labs/instructor) | 4 | Prompt injection fix with XML escaping, Bedrock cachePoint, diskcache optional |
+| [**Camel-AI**](https://github.com/camel-ai/camel) | 3 | Rate limit error generalization, screenshot toolkit thread safety, stream mutation |
+| [**Semantic Kernel**](https://github.com/microsoft/semantic-kernel) | 3 | Gemini thought_signature preservation, Vertex AI api_key validation, function call metadata |
+| [**Graphiti**](https://github.com/getzep/graphiti) | 2 | Neo4j BM25 Lucene query precedence bug with multi-group_ids |
+| [**Livekit Agents**](https://github.com/livekit/agents) | 2 | Truncated JSON tool call recovery, trailing backslash detection |
 | [**Outlines**](https://github.com/dottxt-ai/outlines) | 2 | JSON string literals in DSL, EOS attention mask + vocab truncation |
-| [**Instructor**](https://github.com/567-labs/instructor) | 2 | Bedrock cachePoint passthrough, optional diskcache dependency |
 | [**Docling**](https://github.com/docling-project/docling) | 2 | Reading order FURNITURE content_layer, VLM image RGB conversion |
 | [**OpenAI Python**](https://github.com/openai/openai-python) | 2 | Unreachable error event in streaming, thread event guard ordering |
+| [**Chainlit**](https://github.com/Chainlit/chainlit) | 1 | OAuth session handling fix |
 | [**PyTorch**](https://github.com/pytorch/pytorch) | 1 | Activation offloading reload queue O(n)→O(1) |
 | [**Transformers**](https://github.com/huggingface/transformers) | 1 | ANSI escape codes suppressed when stdout is not a terminal |
-| [**DeepSpeed**](https://github.com/deepspeedai/DeepSpeed) | 1 | FIFO queues O(n)→O(1) in sequence parallel and compile |
-| [**Ray**](https://github.com/ray-project/ray) | 1 | BFS queues and FIFO buffers deque optimization across core |
-| [**AutoGPT**](https://github.com/Significant-Gravitas/AutoGPT) | 1 | FIFO queue performance in copilot SDK |
-| [**CrewAI**](https://github.com/crewAIInc/crewAI) | 1 | `None` tools list crash when extending with MCP tools |
-| [**Semantic Kernel**](https://github.com/microsoft/semantic-kernel) | 1 | Google AI `api_key` check skipped when `use_vertexai=True` |
-| [**browser-use**](https://github.com/browser-use/browser-use) | 4 | RFC 6266 filename*, tempfile portability, chrome-extension filtering |
-| [**MLflow**](https://github.com/mlflow/mlflow) | 1 | Auth credentials missing in OTLP exporter headers |
-| [**Mem0**](https://github.com/mem0ai/mem0) | 3 | Vector/payload list wrapping, OpenAI dimensions passthrough |
-| [**Guardrails API**](https://github.com/guardrails-ai/guardrails-api) | 1 | Missing fields in chat completions response |
-| [**Strands Agents**](https://github.com/strands-agents/sdk-python) | 1 | Pydantic serialization warnings for Anthropic `ParsedTextBlock` |
-| [**Airflow**](https://github.com/apache/airflow) | 1 | Cursor row buffer deque optimization in Google provider |
-| [**Scrapy**](https://github.com/scrapy/scrapy) | 1 | `waiting_deferreds` FIFO queue O(n)→O(1) |
-| [**Prefect**](https://github.com/PrefectHQ/prefect) | 1 | dbt freshness BFS traversal deque optimization |
-| [**PostHog**](https://github.com/PostHog/posthog) | 1 | Batch exports SPMC buffer deque optimization |
-| [**Gradio**](https://github.com/gradio-app/gradio) | 1 | SSE pending message queue deque optimization |
-| [**Haystack**](https://github.com/deepset-ai/haystack) | 1 | Sentence span merging deque optimization |
-| [**Chroma**](https://github.com/chroma-core/chroma) | 1 | Collection operation queue optimization |
-| [**Guidance**](https://github.com/guidance-ai/guidance) | 1 | BFS/DFS traversal deque optimization |
-| [**HF Datasets**](https://github.com/huggingface/datasets) | 1 | Data processing queue optimization |
-| [**LightRAG**](https://github.com/HKUDS/LightRAG) | 1 | Graph traversal queue optimization |
-| [**MetaGPT**](https://github.com/FoundationAgents/MetaGPT) | 1 | Agent communication queue optimization |
-| [**Wandb**](https://github.com/wandb/wandb) | 1 | Log processing queue optimization |
-| [**Weaviate**](https://github.com/weaviate/weaviate-python-client) | 1 | Batch processing queue optimization |
-| [**Modal**](https://github.com/modal-labs/modal-client) | 1 | Watch output buffer optimization |
-| [**Marimo**](https://github.com/marimo-team/marimo) | 1 | Notebook execution queue optimization |
-| [**Qdrant**](https://github.com/qdrant/qdrant-client) | 1 | Model embedder queue optimization |
-| [**simonw/llm**](https://github.com/simonw/llm) | 1 | Plugin processing queue optimization |
-| [**Hamilton**](https://github.com/apache/hamilton) | 1 | Graph BFS traversal queue optimization |
+| [**DeepSpeed**](https://github.com/deepspeedai/DeepSpeed) | 1 | FIFO queues O(n)→O(1) in sequence parallel and compile — **APPROVED ✅** |
+| [**browser-use**](https://github.com/browser-use/browser-use) | 3 | RFC 6266 filename*, tempfile portability, chrome-extension filtering |
+
+### Performance Optimizations — O(n)→O(1)
+
+Queue and buffer optimizations across 20+ repos: **Ray**, **AutoGPT**, **MLflow**, **Mem0**, **Guardrails API**, **Airflow**, **Scrapy**, **Prefect**, **PostHog**, **Gradio**, **Haystack**, **Chroma**, **Guidance**, **HF Datasets**, **LightRAG**, **MetaGPT**, **Wandb**, **Weaviate**, **Modal**, **Marimo**, **Qdrant**, **simonw/llm**, **Hamilton**
 
 ---
 
@@ -180,6 +171,6 @@ Comprehensive fixes across the Vercel Labs browser automation framework.
 
 <p align="center">
   <a href="https://github.com/giulio-leone?tab=repositories">Repositories</a> ·
-  <a href="https://github.com/pulls?q=is%3Apr+author%3Agiulio-leone+is%3Aopen">Open PRs (220+)</a> ·
-  <a href="https://github.com/pulls?q=is%3Apr+author%3Agiulio-leone+is%3Amerged">Merged PRs (570+)</a>
+  <a href="https://github.com/pulls?q=is%3Apr+author%3Agiulio-leone+is%3Aopen">Open PRs (200+)</a> ·
+  <a href="https://github.com/pulls?q=is%3Apr+author%3Agiulio-leone+is%3Amerged">Merged PRs (590+)</a>
 </p>
